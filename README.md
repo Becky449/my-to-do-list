@@ -49,7 +49,7 @@ Have CSS,HTML & JS Linters installed and configured. For further information, vi
 
 👤 **Author1**
 
-- GitHub: [@NurkaAmre](https://github.com/githubhandle)
+- GitHub: [@Becky449](https://github.com/becky449)
 
 
 ## 🤝 Contributing
