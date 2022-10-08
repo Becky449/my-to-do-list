@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/6ce384dd4f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style.css">
-    <title>To Do List</title>
+    <title>To Do List Structure</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
-<body>
-    <main id="container">
-        <section>
-            <ul class="main">
-                <li>
-                    <h1>Today's to-do-list</h1>
-                    <button type="button"><i class="fa-solid fa-arrows-rotate"></i></button>
-                </li>
-                <hr>
-                <li id="add-task">
-                    <form action="" data-new-list-form>
-                        <input placeholder="Add a list..." data-new-list-input type="text">
-                        <button type="submit" id="push" class="first-btn">&#x21B5;</button>
-                    </form>
-                </li>
-                <hr>
-                <ul id="tasks">
 
-                </ul>
-                <li id="remove" class="clear">
-                    <a href="#">Clear all completed</a>
-                </li>
-            </ul>
-        </section>
-    </main>
-    <script src="./index.js"></script>
+<body>
+    <div class="container">
+        <div class="d-flex to-do-header">
+            <h3 class="to-do-title">To Do List</h3>
+            <button class="refresh-btn">&#8634</button>
+        </div>
+
+        <form id="form" class="d-flex">
+            <input type="text" class="to-do-input" placeholder="Add to your list..." required />
+            <button type="submit" class="add-btn">&#10550</button>
+        </form>
+
+        <ul class="to-do-lists">
+        </ul>
+        <div class="clear-all">
+            <a href="#" class="clear-all-btn">Clear all completed</a>
+        </div>
+    </div>
+    <script src="./main.bundle.js"></script>
 </body>
+
 </html>
