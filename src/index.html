@@ -9,23 +9,30 @@
     <title>To Do List</title>
 </head>
 <body>
-   
-    <div class="container">
-        <header>
-          <h1>My To Do List</h1>
-          <i class="fa-solid fa-arrows-rotate " aria-hidden="true"></i>
-        </header>
-        <hr>
-          <form action="post" id="task-form">
-            <input for="text" id="input-field" class="add-list" placeholder="Add to your list" required></input>
-            <button class="add-btn first-btn" id="push">&#x21B5;</button>
-          </form>
-          <hr>
-            <ul class="list">
+    <main id="container">
+        <section>
+            <ul class="main">
+                <li>
+                    <h1>To-do-list Todays</h1>
+                    <button type="button"><i class="fa-solid fa-arrows-rotate"></i></button>
+                </li>
+                <hr>
+                <li id="add-task">
+                    <form action="" data-new-list-form>
+                        <input placeholder="Add a list..." data-new-list-input type="text">
+                        <button type="submit" id="push" class="first-btn">&#x21B5;</button>
+                    </form>
+                </li>
+                <hr>
+                <ul id="tasks">
+
+                </ul>
+                <li id="remove" class="clear">
+                    <a href="#">Clear all completed</a>
+                </li>
             </ul>
-        <button type="button" class="clear">
-          Clear all completed
-        </button>
-      </div> 
+        </section>
+    </main>
+    <script src="./index.js"></script>
 </body>
 </html>
