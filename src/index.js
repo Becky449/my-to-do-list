@@ -4,7 +4,23 @@ const listsContainer = document.querySelector('#tasks');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
 
-const lists = [];
+const lists = [
+  {
+    description: 'walk the dog',
+    completed: true,
+    index: 1,
+  },
+  {
+    description: 'Call my family mebers for my party',
+    completed: true,
+    index: 2,
+  },
+  {
+    description: 'Go grocery shopping',
+    completed: true,
+    index: 3,
+  },
+];
 
 function createList(name) {
   return {
