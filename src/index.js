@@ -1,9 +1,5 @@
 import './style.css';
 
-const listsContainer = document.querySelector('#tasks');
-const newListForm = document.querySelector('[data-new-list-form]');
-const newListInput = document.querySelector('[data-new-list-input]');
-
 const lists = [
   {
     description: 'walk the dog',
@@ -22,40 +18,25 @@ const lists = [
   },
 ];
 
-function createList(name) {
-  return {
-    id: Date.now().toString(), name, tasks: [],
-  };
-}
-
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-}
-
-function render() {
-  clearElement(listsContainer);
-  lists.forEach((list) => {
-    const listElement = document.createElement('li');
-    const btn = document.createElement('button');
-    listElement.dataset.listId = list.id;
-    btn.dataset.listId = list.id;
-    listElement.classList.add('list-name');
-    btn.classList.add('delete');
-    listElement.innerText = list.name;
-    listsContainer.appendChild(listElement);
+function component() {
+  const element = document.createElement('li');
+  // Lodash, now imported by this script
+  dSet.forEach((d, index) => {
+    // eslint-disable-next-line eqeqeq
+    if (d.index == index) {
+      element.innerHTML += `
+      <div class='li-item'>
+        <div>
+          <input type="checkbox" class="checkbox">
+          <label for="text">${d.desc}</label>
+        </div>
+        <div><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+      </div>
+      <hr>
+      `;
+    }
   });
+  element.classList.add('item');
+  return element;
 }
-
-newListForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const listName = newListInput.value;
-  if (listName == null || listName === '') return;
-  const list = createList(listName);
-  newListInput.value = null;
-  lists.push(list);
-  render();
-});
-
-render();
+document.querySelector('.list').appendChild(component());
