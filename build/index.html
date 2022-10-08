@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List Structure</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://kit.fontawesome.com/6ce384dd4f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>To Do List</title>
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
-
 <body>
-    <div class="container">
-        <div class="d-flex to-do-header">
-            <h3 class="to-do-title">To Do List</h3>
-            <button class="refresh-btn">&#8634</button>
-        </div>
-
-        <form id="form" class="d-flex">
-            <input type="text" class="to-do-input" placeholder="Add to your list..." required />
-            <button type="submit" class="add-btn">&#10550</button>
-        </form>
-
-        <ul class="to-do-lists">
-        </ul>
-        <div class="clear-all">
-            <a href="#" class="clear-all-btn">Clear all completed</a>
-        </div>
-    </div>
-    <script src="./main.bundle.js"></script>
+   
+    <div class="todo-container">
+        <header>
+          <h1>My To Do List</h1>
+          <!-- <i class="fa fa-thumbtack" aria-hidden="true"></i> -->
+          <i class="fa-solid fa-arrows-rotate " aria-hidden="true"></i>
+        </header>
+        <hr>
+          <form action="post" id="task-form">
+            <input for="text" id="input-field" class="add-list" placeholder="Add to your list" required></input>
+            <button class="add-btn first-btn" id="push">&#x21B5;</button>
+          </form>
+          <hr>
+            <ul class="list">
+              <!-- Items -->
+            </ul>
+        <button type="button" class="clear">
+          Clear all completed
+        </button>
+      </div> 
 </body>
-
 </html>

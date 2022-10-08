@@ -64,8 +64,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Thanks for Microverse 
-- Thanks for me
+- Hat tip to anyone whose code was used
+- Thanks to Microverse 
+- Thanks for the team of supporters
 
 ## 📝 License
 

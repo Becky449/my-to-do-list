@@ -1,61 +1,74 @@
+// import _, { forEach } from 'lodash';
 import './style.css';
+import * as stat from './modules/crud.js';
+import * as task from './modules/array.js';
 
-const listsContainer = document.querySelector('#tasks');
-const newListForm = document.querySelector('[data-new-list-form]');
-const newListInput = document.querySelector('[data-new-list-input]');
+let list = [];
 
-const lists = [
-  {
-    description: 'walk the dog',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'Call my family mebers for my party',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'Go grocery shopping',
-    completed: true,
-    index: 3,
-  },
-];
+const listContainer = document.querySelector('ul');
 
-function createList(name) {
-  return {
-    id: Date.now().toString(), name, tasks: [],
-  };
-}
-
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+const addList = () => {
+  if (window.localStorage.getItem('localTasks')) {
+    const localTasks = window.localStorage.getItem('localTasks');
+    list = JSON.parse(localTasks);
   }
-}
-
-function render() {
-  clearElement(listsContainer);
-  lists.forEach((list) => {
-    const listElement = document.createElement('li');
-    const btn = document.createElement('button');
-    listElement.dataset.listId = list.id;
-    btn.dataset.listId = list.id;
-    listElement.classList.add('list-name');
-    btn.classList.add('delete');
-    listElement.innerText = list.name;
-    listsContainer.appendChild(listElement);
+  document.querySelector('.list').innerHTML = '';
+  list.forEach((item) => {
+    const taskElement = document.createElement('li');
+    taskElement.classList.add('task');
+    if (item.isCompleted) {
+      taskElement.classList.add('completed');
+    }
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('task-check');
+    checkbox.addEventListener('click', () => {
+      stat.status(item, list);
+      addList();
+    });
+    checkbox.checked = item.isCompleted;
+    taskElement.appendChild(checkbox);
+    const taskText = document.createElement('input');
+    taskText.classList = 'task-text';
+    taskText.value = item.description;
+    taskText.addEventListener('change', () => {
+      if (taskText.value.length > 0) {
+        item.description = taskText.value;
+        stat.saveLocal(list);
+      }
+    });
+    taskElement.appendChild(taskText);
+    const dragIcon = document.createElement('button');
+    dragIcon.classList = 'far fa-trash-alt deleteBtn';
+    taskElement.appendChild(dragIcon);
+    taskElement.draggable = 'true';
+    document.querySelector('.list').appendChild(taskElement);
   });
+};
+
+function removeItem(e) {
+  if (!e.target.classList.contains('deleteBtn')) {
+    return;
+  }
+  const btn = e.target;
+  list.forEach((task) => {
+    if (task.description === btn.parentElement.children[1].value) {
+      list.splice(list.indexOf(task), 1);
+    }
+  });
+  btn.closest('li').remove();
+  task.updateIndex(list);
+  stat.saveLocal(list);
 }
 
-newListForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const listName = newListInput.value;
-  if (listName == null || listName === '') return;
-  const list = createList(listName);
-  newListInput.value = null;
-  lists.push(list);
-  render();
+listContainer.addEventListener('click', removeItem);
+addList();
+document.querySelector('#task-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  task.add(list);
+  addList();
 });
-
-render();
+document.querySelector('.clear').addEventListener('click', () => {
+  task.removeDone(list);
+  addList();
+});

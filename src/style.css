@@ -1,94 +1,137 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*,
+html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-body {
-  height: 100%;
-  background: lightgoldenrodyellow;
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.8rem;
 }
 
-ul {
-  list-style-type: none;
-}
-
-#container {
+.container {
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  border: 2px solid grey;
-  background-color: #fff;
-  min-width: 450px;
-  width: 40%;
-  position: relative;
-  left: 30%;
-  margin-top: 10%;
+  border: 1px solid #808080;
 }
 
-h1 {
-  font-size: 2rem;
-  padding-left: 10px;
-}
-
-.fa-arrows-rotate {
-  position: absolute;
-  left: 92.5%;
-  bottom: 88%;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-input {
+.add-list {
+  padding: 0 0.8rem;
   border: none;
-  width: 90%;
-  height: 40px;
-  padding-left: 5px;
-}
-
-form input:focus {
-  outline: none;
-  padding-left: 5px;
-}
-
-hr {
-  background-color: lightgray;
-  height: 2px;
+  background: #fff;
+  font-style: italic;
+  margin: 0.8rem 0;
   width: 100%;
 }
 
-.first-btn {
-  background: none;
+input:focus {
+  outline: none;
+}
+
+li {
+  background: #000;
+}
+
+.task {
+  display: flex;
+  padding: 0.8rem 1.8rem;
+  background: #fff;
+  gap: 0.8rem;
+  border-bottom: 1px solid #111110;
+}
+
+.task-text {
+  font-weight: normal;
+  font-size: 1.4rem;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.deleteBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.deleteBtn:hover {
+  color: red;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.clear {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 0.8rem 0;
+  color: #6d6b6b;
+  background: #0000001a;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.clear:hover {
+  background: #b1bbb8;
+  color: black;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.list {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: #1e3b30;
+  border-radius: 25px;
+}
+
+#task-form {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+}
+
+.add-btn {
+  background: white;
   border: none;
   padding-inline: 10px;
   font-size: 35px;
   cursor: pointer;
 }
 
-.clear {
-  padding-left: 30%;
-  padding-bottom: 5%;
-  padding-top: 5%;
-  background-color: whitesmoke;
-}
-
-.clear a {
-  font-size: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  color: #000;
-}
-
-#tasks {
-  background-color: #fff;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  position: relative;
-}
-
-.list-name {
-  font-size: 1rem;
-  border-bottom: 1px solid #000;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+.completed {
+  text-decoration: line-through;
 }
