@@ -1,4 +1,4 @@
-# ToDoList Structure
+# To Do List Structure
 
 > Description the project.
 In this project we will be using webpack to create, edit, and delete tasks from a list of tasks created by the user, the main goals of this project are:
@@ -24,7 +24,7 @@ In this project we will be using webpack to create, edit, and delete tasks from 
 **Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running clone: https://github.com/Becky449/my-to-do-list.git
 
 ### Prerequisites
 
@@ -49,7 +49,7 @@ Have CSS,HTML & JS Linters installed and configured. For further information, vi
 
 👤 **Author1**
 
-- GitHub: [@becky449](https://github.com/becky449)
+- GitHub: [@Becky449](https://github.com/becky449)
 
 
 ## 🤝 Contributing
@@ -70,4 +70,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
-
